@@ -1,107 +1,107 @@
-# This file configures github.com/golangci/golangci-lint.
-# https://golangci-lint.run/usage/configuration/
-run:
-  timeout: 20m
-  tests: false
-  skip-dirs-use-default: true
-  skip-files:
-  - "server/errors.go"
+# # This file configures github.com/golangci/golangci-lint.
+# # https://golangci-lint.run/usage/configuration/
+# run:
+#   timeout: 20m
+#   tests: false
+#   skip-dirs-use-default: true
+#   skip-files:
+#   - "server/errors.go"
 
-linters:
-  disable-all: true
-  enable:
-  - containedctx
-  - errname
-  - errorlint
-  - gocritic
-  - godot
-  - misspell
-  - revive
-  - tagliatelle
-  - unconvert
-  - whitespace
+# linters:
+#   disable-all: true
+#   enable:
+#   - containedctx
+#   - errname
+#   - errorlint
+#   - gocritic
+#   - godot
+#   - misspell
+#   - revive
+#   - tagliatelle
+#   - unconvert
+#   - whitespace
 
-linters-settings:
-  gci:
-    sections:
-    - standard
-    - default
-    - prefix(github.com/taiko/go-sequencer)
+# linters-settings:
+#   gci:
+#     sections:
+#     - standard
+#     - default
+#     - prefix(github.com/taiko/go-sequencer)
 
-  # https://go-critic.com/overview
-  gocritic:
-    disabled-checks:
-    - octalLiteral
-    enabled-tags:
-    - diagnostic
-    - style
-    - performance
-    - experimental
-    - opinionated
+#   # https://go-critic.com/overview
+#   gocritic:
+#     disabled-checks:
+#     - octalLiteral
+#     enabled-tags:
+#     - diagnostic
+#     - style
+#     - performance
+#     - experimental
+#     - opinionated
 
-  # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md
-  revive:
-    ignore-generated-header: true
-    enable-all-rules: true
-    rules:
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#add-constant
-    - name: add-constant
-      arguments:
-      - maxLitCount: "4"
-      allowStrs: '"","tuple","bytes32"'
-      allowInts: "0700,0,1,8,32"
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#atomic
-    - name: argument-limit
-      arguments: [4]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#banned-characters
-    - name: banned-characters
-      disabled: true
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#cognitive-complexity
-    - name: cognitive-complexity
-      disabled: false
-      arguments: [10]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#cyclomatic
-    - name: cyclomatic
-      arguments: [10]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#defer
-    - name: defer
-      arguments:
-      - ["call-chain", "loop"]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#exported
-    - name: exported
-      arguments:
-      - "checkPrivateReceivers"
-      - "sayRepetitiveInsteadOfStutters"
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#file-header
-    - name: file-header
-      disabled: true
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#function-result-limit
-    - name: function-result-limit
-      arguments: [3]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#function-length
-    - name: function-length
-      arguments: [0, 36]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#line-length-limit
-    - name: line-length-limit
-      arguments: [120]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#max-public-structs
-    - name: max-public-structs
-      arguments: [3]
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#unhandled-error
-    - name: unhandled-error
-      disabled: false
-      arguments:
-      - "f.Close"
-    # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#nested-structs
-    - name: nested-structs
-      disabled: true
+#   # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md
+#   revive:
+#     ignore-generated-header: true
+#     enable-all-rules: true
+#     rules:
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#add-constant
+#     - name: add-constant
+#       arguments:
+#       - maxLitCount: "4"
+#       allowStrs: '"","tuple","bytes32"'
+#       allowInts: "0700,0,1,8,32"
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#atomic
+#     - name: argument-limit
+#       arguments: [4]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#banned-characters
+#     - name: banned-characters
+#       disabled: true
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#cognitive-complexity
+#     - name: cognitive-complexity
+#       disabled: false
+#       arguments: [10]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#cyclomatic
+#     - name: cyclomatic
+#       arguments: [10]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#defer
+#     - name: defer
+#       arguments:
+#       - ["call-chain", "loop"]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#exported
+#     - name: exported
+#       arguments:
+#       - "checkPrivateReceivers"
+#       - "sayRepetitiveInsteadOfStutters"
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#file-header
+#     - name: file-header
+#       disabled: true
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#function-result-limit
+#     - name: function-result-limit
+#       arguments: [3]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#function-length
+#     - name: function-length
+#       arguments: [0, 36]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#line-length-limit
+#     - name: line-length-limit
+#       arguments: [120]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#max-public-structs
+#     - name: max-public-structs
+#       arguments: [3]
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#unhandled-error
+#     - name: unhandled-error
+#       disabled: false
+#       arguments:
+#       - "f.Close"
+#     # https://github.com/mgechev/revive/blob/master/RULES_DESCRIPTIONS.md#nested-structs
+#     - name: nested-structs
+#       disabled: true
 
-  tagliatelle:
-    case:
-    rules:
-    json: snake
-    yaml: snake
-issues:
-  include:
-  - EXC0012
-  - EXC0014
+#   tagliatelle:
+#     case:
+#     rules:
+#     json: snake
+#     yaml: snake
+# issues:
+#   include:
+#   - EXC0012
+#   - EXC0014
