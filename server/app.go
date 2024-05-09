@@ -13,6 +13,9 @@ import (
 
 
 
+
+
+
 type Product struct {
     gorm.Model
     Name  string         `json:"name"`
