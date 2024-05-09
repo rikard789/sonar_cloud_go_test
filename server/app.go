@@ -10,6 +10,7 @@ import (
 	"gorm.io/gorm"
 )
 
+const productEndpoint := "/products/:id"
 
 type Product struct {
     gorm.Model
@@ -70,10 +71,10 @@ func main() {
 
 
 	e.GET("/products", GetAllProducts)
-    e.GET("/products/:id", GetProduct)
+    e.GET(productEndpoint, GetProduct)
     e.POST("/products", CreateProduct)
-    e.PUT("/products/:id", UpdateProduct)
-    e.DELETE("/products/:id", DeleteProduct)
+    e.PUT(productEndpoint, UpdateProduct)
+    e.DELETE(productEndpoint, DeleteProduct)
 
 	e.GET("/pay", GetAllPayments)
 	e.POST("/pay", AddPayment)

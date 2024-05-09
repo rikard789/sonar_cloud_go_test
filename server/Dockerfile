@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:1.22.3-bullseye
 ENV GOPATH /go
 
 COPY . /go/src/app
