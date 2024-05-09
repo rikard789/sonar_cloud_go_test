@@ -10,7 +10,9 @@ import (
 	"gorm.io/gorm"
 )
 
-const productEndpoint := "/products/:id"
+const productEndpoint = "/products/:id"
+
+
 
 type Product struct {
     gorm.Model
